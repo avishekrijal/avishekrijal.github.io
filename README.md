@@ -18,4 +18,4 @@ Hosted on **GitHub Pages**. Updates are deployed automatically on commit.
 
 ## 📩 Contact  
 - ✉️ Email: [abishekrijal2060@gmail.com](mailto:abishekrijal2060@gmail.com.com)  
-- 🔗 GitHub: [@avishekrijal](https://github.com/avisherijal)  
+- 🔗 GitHub: [@avishekrijal](https://github.com/avishekrijal)  
