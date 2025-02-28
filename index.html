@@ -1,68 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avishek Rijal</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avishek Rijal</title>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Hero Section with Image Background -->
-    <header class="hero-section">
-        <img src="Header.jpeg" alt="Background image" class="hero-img">
-    </header>
+  <header class="hero">
+    <img src="Header.jpeg" alt="Hero Background" class="hero-bg" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in">
+      <h1 class="hero-title">Avishek Rijal</h1>
+      <p class="hero-subtitle">Cinematic Content & Tech Explorations</p>
+    </div>
+  </header>
 
-    <!-- Profile Section -->
+  <section class="profile-section fade-in">
     <div class="profile-container">
-        <div class="profile-circle">
-            <img src="profile.jpg" alt="Profile Image" class="profile-img">
-        </div>
-        <h1 class="name">Avishek Rijal</h1>
+      <div class="profile-circle">
+        <img src="profile.jpg" alt="Profile Image" class="profile-img" />
+      </div>
     </div>
-    <div class="content-container">
-        <!-- About Me Section -->
-        <section class="about-me fade-in">
-            <h2>About Me</h2>
-            <p>Hey there! I’m Avishek, a BBA student with a curious mind and a growing interest in tech and coding. While my studies keep me busy, I love exploring creative stuff like video editing, color grading, and learning new skills. This website is a little showcase of the things I enjoy working on. Feel free to check out my projects, including some of my cinematic content! Thanks for stopping by, and I hope you enjoy what you see.</p>
-        </section>
-        <section class="projects fade-in">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <a href="https://www.instagram.com/_abhish3k7/reel/CtriiB1qHj2/" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <img src="project1.jpg" alt="Project 1">
-                </a>
-                <a href="https://www.instagram.com/p/CvivlsRNlMk/" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <img src="project2.jpg" alt="Project 2">
-                </a>
-                <a href="https://www.instagram.com/p/CvhLEjjKl2j/" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <img src="project3.jpg" alt="Project 3">
-                </a>
-                <a href="https://www.instagram.com/p/Ct_sYbeqjo1/" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <img src="project4.jpg" alt="Project 4">
-                </a>
+  </section>
+
+  <div class="horizontal-divider fade-in"></div>
+
+  <section class="content-section fade-in">
+    <div class="bio-column">
+      <p>
+        Hey there! I’m Avishek, a BBA student with a curious mind and a growing interest in tech and coding.
+        While my studies keep me busy, I love exploring creative stuff like video editing, color grading, and learning new skills.
+      </p>
+      <p>
+        This website is a little showcase of the things I enjoy working on.
+        Feel free to check out my projects, including some of my cinematic content!
+        Thanks for stopping by, and I hope you enjoy what you see.
+      </p>
+    </div>
+
+    <div class="vertical-divider fade-in"></div>
+
+    <div class="projects-column">
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-item">
+          <a href="https://www.instagram.com/_abhish3k7/reel/CtriiB1qHj2/" target="_blank" rel="noopener noreferrer">
+            <img src="project1.jpg" alt="Project 1" />
+            <div class="overlay">
+              <div class="overlay-text">Project 1</div>
             </div>
-        </section>
+          </a>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-item">
+          <a href="https://www.instagram.com/p/CvivlsRNlMk/" target="_blank" rel="noopener noreferrer">
+            <img src="project2.jpg" alt="Project 2" />
+            <div class="overlay">
+              <div class="overlay-text">Project 2</div>
+            </div>
+          </a>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-item">
+          <a href="https://www.instagram.com/p/CvhLEjjKl2j/" target="_blank" rel="noopener noreferrer">
+            <img src="project3.jpg" alt="Project 3" />
+            <div class="overlay">
+              <div class="overlay-text">Project 3</div>
+            </div>
+          </a>
+        </div>
+        <!-- Project 4 -->
+        <div class="project-item">
+          <a href="https://www.instagram.com/p/Ct_sYbeqjo1/" target="_blank" rel="noopener noreferrer">
+            <img src="project4.jpg" alt="Project 4" />
+            <div class="overlay">
+              <div class="overlay-text">Project 4</div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="social-links">
-            <span class="social-text">Follow me on:</span>
-            <a href="https://www.instagram.com/_abhish3k7/" target="_blank"><img src="instaicon.png" alt="Instagram"></a>
-        </div>
-        <div class="contact-footer">
-        </div>
-        <div class="copyright">
-            &copy; Copyright @ 2025 by Avishek
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer fade-in">
+    <div class="footer-content">
+      <div class="social-links">
+        <span class="social-text">Follow me on:</span>
+        <a href="https://www.instagram.com/_abhish3k7/" target="_blank">
+          <img src="instaicon.png" alt="Instagram" />
+        </a>
+      </div>
+      <div class="contact-footer">
+        <!-- Optional contact info -->
+      </div>
+      <div class="copyright">
+        &copy; 2025 by Avishek
+      </div>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- External JS -->
+  <script src="script.js"></script>
 </body>
 </html>
