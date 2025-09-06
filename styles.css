@@ -51,15 +51,12 @@ body {
   position: relative;
   z-index: 3;
 }
-
-/* Fix added here */
 .profile-container {
   display: flex;
   justify-content: center;
   max-width: 200px;
   margin: auto;
 }
-
 .profile-circle {
   width: 180px;
   height: 180px;
@@ -72,12 +69,10 @@ body {
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .profile-circle:hover {
   transform: scale(1.05);
   box-shadow: 0 0 30px var(--accent);
 }
-
 .profile-img {
   width: 90%;
   height: 90%;
@@ -196,4 +191,50 @@ body {
 }
 .nav-links a:hover {
   color: var(--accent);
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-light);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+/* Animate hamburger → X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 25px;
+    border-radius: 8px;
+    gap: 15px;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
 }
