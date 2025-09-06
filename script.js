@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Fade-in animations
   const fadeElements = document.querySelectorAll('.fade-in');
   const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   fadeElements.forEach(el => fadeObserver.observe(el));
 
+  // Project overlays
   const projectItems = document.querySelectorAll('.project-item');
   const overlayObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -16,3 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   projectItems.forEach(item => overlayObserver.observe(item));
 });
+
+// Toggle hamburger menu
+function toggleMenu(x) {
+  x.classList.toggle("active");
+  document.querySelector(".nav-links").classList.toggle("active");
+}
