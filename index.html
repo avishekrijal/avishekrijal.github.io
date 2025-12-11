@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -67,11 +67,11 @@
   </script>
 
   <style>
-    /* Ensure no horizontal scroll anywhere */
+    /* Fixed: Removed overflow-x hidden from html/body to restore sticky behavior */
     html, body {
       width: 100%;
       max-width: 100%;
-      overflow-x: hidden;
+      /* overflow-x: hidden; <--- REMOVED THIS to fix sticky positioning */
     }
     
     body {
