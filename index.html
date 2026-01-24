@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,6 +26,7 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             heading: ['Montserrat', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'], // Added for the hacker effect feel
           },
           animation: {
             'float': 'float 8s ease-in-out infinite',
@@ -71,7 +72,6 @@
     html, body {
       width: 100%;
       max-width: 100%;
-      /* overflow-x: hidden; <--- REMOVED THIS to fix sticky positioning */
     }
     
     body {
@@ -154,20 +154,25 @@
         transform-origin: center;
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-color 0.3s;
     }
+
+    /* Typewriter Cursor Blink */
+    .cursor {
+      display: inline-block;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
   </style>
 </head>
 <body class="relative selection:bg-accent/30 selection:text-accent">
 
-  <!-- BACKGROUND ELEMENTS (Fixed & Contained to prevent overflow) -->
+  <!-- BACKGROUND: FIXED AMBIENT BLOBS ONLY (Restored clean look) -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-    <!-- Top Right Purple Blob -->
     <div class="absolute top-[-10%] right-[-50px] w-[400px] h-[400px] bg-purple-900/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob opacity-40"></div>
-    <!-- Middle Left Accent Blob -->
     <div class="absolute top-[20%] left-[-100px] w-[400px] h-[400px] bg-accent/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob opacity-30" style="animation-delay: 2s"></div>
-    <!-- Bottom Left Blue Blob (Was previously causing overflow) -->
     <div class="absolute bottom-[-10%] left-[20%] w-[500px] h-[500px] bg-blue-900/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob opacity-40" style="animation-delay: 4s"></div>
-    <!-- Extra Accent Blob (Moved from Footer area to here to prevent scroll) -->
-    <div class="absolute w-[600px] h-[600px] bottom-0 left-1/4 -translate-x-1/2 bg-accent/20 rounded-full mix-blend-screen filter blur-[200px] animate-blob opacity-30" style="animation-delay: 3.5s;"></div>
   </div>
 
   <!-- NAVIGATION -->
@@ -176,7 +181,7 @@
       <!-- Logo -->
       <a href="#" class="group relative z-50" aria-label="Avishek - Go to home">
         <span class="text-2xl font-heading font-bold text-white tracking-tighter">
-          Avishek<span class="text-accent group-hover:text-white transition-colors duration-300">.</span>
+          Portfolio<span class="text-accent group-hover:text-white transition-colors duration-300"></span>
         </span>
       </a>
 
@@ -188,10 +193,8 @@
         </a>
       </div>
 
-      <!-- REDESIGNED HAMBURGER MENU -->
-      <!-- Added a container button with specific dimensions and a subtle glass background -->
+      <!-- HAMBURGER MENU -->
       <button id="menu-btn" class="md:hidden relative z-50 w-12 h-12 flex flex-col justify-center items-center gap-1.5 group focus:outline-none rounded-full hover:bg-white/5 transition-colors duration-300" aria-label="Toggle navigation menu">
-        <!-- Uniform width lines for professional look -->
         <span class="hamburger-line w-6 h-0.5 bg-white rounded-full group-hover:bg-accent"></span>
         <span class="hamburger-line w-6 h-0.5 bg-white rounded-full group-hover:bg-accent"></span>
         <span class="hamburger-line w-6 h-0.5 bg-white rounded-full group-hover:bg-accent"></span>
@@ -229,9 +232,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 py-10">
             <div class="lg:order-1 text-center lg:text-left reveal-on-scroll">
                 <p class="text-lg font-medium text-accent mb-3 tracking-wider uppercase delay-100">Hello, I'm</p>
-                <!-- Optimized text size for mobile (text-5xl) -->
-                <h1 class="font-heading text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-extrabold text-white mb-6 tracking-tighter text-glow leading-tight delay-200">
-                    Avishek
+                <!-- Typewriter Effect Name -->
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-extrabold text-white mb-6 tracking-tighter text-glow leading-tight delay-200 cursor-default min-h-[1.1em]">
+                    <span id="typewriter-text"></span><span class="cursor text-accent">|</span>
                 </h1>
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-lg md:text-xl text-gray-300 font-light tracking-wide delay-300">
                     <span class="hover:text-accent transition-colors cursor-default">Student</span>
@@ -273,7 +276,6 @@
       <!-- ABOUT SECTION (Sticky) -->
       <div id="about" class="lg:col-span-5 h-full"> 
         <!-- Sticky Card -->
-        <!-- Adjusted padding for mobile (p-6) -->
         <div class="glass-card rounded-3xl p-6 md:p-10 lg:sticky lg:top-28 reveal-on-scroll">
           <div class="flex items-center gap-4 mb-8">
             <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
@@ -284,7 +286,7 @@
           
           <div class="space-y-6 text-gray-400 leading-relaxed text-[1.05rem]">
             <p>
-              Hey there! I'm <span class="text-white font-semibold">Avishek</span>, a BBA student driven by curiosity and a passion for the intersection of <span class="text-accent">technology</span>, business, and creative storytelling.
+              Hey there! I'm a <span class="text-white font-semibold">Avishek</span>, a BBA student driven by curiosity and a passion for the intersection of <span class="text-accent">technology</span>, business, and creative storytelling.
             </p>
             <p>
               Beyond the textbooks, I'm a visual storyteller. I spend my free time mastering <span class="text-white">cinematography</span> and the art of <span class="text-white">color grading</span>, bringing cinematic visions to life. Recently, I've stepped into the world of web development to build digital experiences that matter.
@@ -308,26 +310,26 @@
           
           <div class="group project-card glass-card rounded-2xl p-3 hover:bg-white/5 transition-colors duration-300 reveal-on-scroll">
             <div class="relative h-64 rounded-xl overflow-hidden project-img-container mb-4">
-              <!-- Mobile Link (Cover entire image on mobile, hidden on desktop) -->
-              <a href="https://drive.google.com/file/d/16b29ohTA5IgP3Y45NYp-Ns54pUNIywUD/view?usp=drive_link" target="_blank" class="md:hidden absolute inset-0 z-20" aria-label="CinematicVideo of Surkhet"></a>
+              <!-- Mobile Link -->
+              <a href="https://drive.google.com/file/d/16b29ohTA5IgP3Y45NYp-Ns54pUNIywUD/view?usp=drive_link" target="_blank" class="md:hidden absolute inset-0 z-20" aria-label="View Temple Architecture Project"></a>
               
-              <img src="project1.webp" alt="CinematicVideo of Surkhet" class="project-img w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x800/1a1a1a/333?text=Project+1';">
+              <img src="project1.webp" alt="Photography of Temple Architecture" class="project-img w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x800/1a1a1a/333?text=Project+1';">
               
-              <!-- Desktop Overlay (Hidden on mobile) -->
+              <!-- Desktop Overlay -->
               <div class="hidden md:flex absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
                 <a href="https://drive.google.com/file/d/16b29ohTA5IgP3Y45NYp-Ns54pUNIywUD/view?usp=drive_link" target="_blank" class="px-6 py-2 bg-accent text-dark rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-sm hover:bg-white">View Project</a>
               </div>
             </div>
             <div class="px-2 pb-2">
-              <h3 class="text-lg font-bold text-white mb-1">Surkhet</h3>
-              <p class="text-sm text-gray-500">Videography • Color Grading</p>
+              <h3 class="text-lg font-bold text-white mb-1">Temple Architecture</h3>
+              <p class="text-sm text-gray-500">Photography • Color Grading</p>
             </div>
           </div>
 
           <div class="group project-card glass-card rounded-2xl p-3 hover:bg-white/5 transition-colors duration-300 reveal-on-scroll delay-100">
             <div class="relative h-64 rounded-xl overflow-hidden project-img-container mb-4">
               <!-- Mobile Link -->
-              <a href="https://drive.google.com/file/d/1I3N3M3j3Wmg54R_TEIVsiVmUdGq6WgpG/view?usp=drive_link" target="_blank" class="md:hidden absolute inset-0 z-20" aria-label="Pokhara Cinematic"></a>
+              <a href="https://drive.google.com/file/d/1I3N3M3j3Wmg54R_TEIVsiVmUdGq6WgpG/view?usp=drive_link" target="_blank" class="md:hidden absolute inset-0 z-20" aria-label="View Misty Hills Project"></a>
               
               <img src="project2.webp" alt="Landscape photo of Misty Hills" class="project-img w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x800/1a1a1a/333?text=Project+2';">
               
@@ -337,8 +339,8 @@
               </div>
             </div>
             <div class="px-2 pb-2">
-              <h3 class="text-lg font-bold text-white mb-1">Pokhara Cinematic</h3>
-              <p class="text-sm text-gray-500">Videography • Color Grading</p>
+              <h3 class="text-lg font-bold text-white mb-1">Misty Hills</h3>
+              <p class="text-sm text-gray-500">Landscape • Editing</p>
             </div>
           </div>
 
@@ -347,7 +349,7 @@
               <!-- Mobile Link -->
               <a href="https://drive.google.com/file/d/1udtQ8PECpFbLeZ_ELcXivmPWszxshpMH/view?usp=drive_link" target="_blank" class="md:hidden absolute inset-0 z-20" aria-label="View Nature's Palette Project"></a>
               
-              <img src="project3.webp" alt="Macro VideoGraphy" class="project-img w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x800/1a1a1a/333?text=Project+3';">
+              <img src="project3.webp" alt="Macro photography of flowers" class="project-img w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x800/1a1a1a/333?text=Project+3';">
               
               <!-- Desktop Overlay -->
               <div class="hidden md:flex absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
@@ -356,16 +358,16 @@
             </div>
             <div class="px-2 pb-2">
               <h3 class="text-lg font-bold text-white mb-1">Nature's Palette</h3>
-              <p class="text-sm text-gray-500">ColorGrading • Composition</p>
+              <p class="text-sm text-gray-500">Macro • Composition</p>
             </div>
           </div>
 
           <div class="group project-card glass-card rounded-2xl p-3 hover:bg-white/5 transition-colors duration-300 reveal-on-scroll delay-100">
             <div class="relative h-64 rounded-xl overflow-hidden project-img-container mb-4">
               <!-- Mobile Link -->
-              <a href="https://drive.google.com/file/d/1EA_KI_ZnsBZmTPN_uctyxdU_nC51yVWd/view?usp=drive_link" target="_blank" class="md:hidden absolute inset-0 z-20" aria-label="View Editing of Landscape"></a>
+              <a href="https://drive.google.com/file/d/1EA_KI_ZnsBZmTPN_uctyxdU_nC51yVWd/view?usp=drive_link" target="_blank" class="md:hidden absolute inset-0 z-20" aria-label="View Urban Bridges Project"></a>
               
-              <img src="project4.webp" alt="Editing of Landscape" class="project-img w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x800/1a1a1a/333?text=Project+4';">
+              <img src="project4.webp" alt="Photo of Urban Bridges structure" class="project-img w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x800/1a1a1a/333?text=Project+4';">
               
               <!-- Desktop Overlay -->
               <div class="hidden md:flex absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
@@ -373,7 +375,7 @@
               </div>
             </div>
             <div class="px-2 pb-2">
-              <h3 class="text-lg font-bold text-white mb-1">Landscape</h3>
+              <h3 class="text-lg font-bold text-white mb-1">Urban Bridges</h3>
               <p class="text-sm text-gray-500">Structure • Perspective</p>
             </div>
           </div>
@@ -485,14 +487,11 @@
     });
     
     // --- MOBILE SCROLL HIGHLIGHT OBSERVER ---
-    // Only runs if screen width is small (mobile/tablet)
     if (window.innerWidth < 768) {
         const mobileCardObserverOptions = {
             root: null,
-            // Negative margins create a horizontal "trigger zone" in the middle of the viewport
-            // effectively ignoring the top 40% and bottom 40% of the screen.
             rootMargin: '-40% 0px -40% 0px', 
-            threshold: 0 // Trigger as soon as one pixel enters this middle zone
+            threshold: 0 
         };
 
         const mobileCardObserver = new IntersectionObserver((entries) => {
@@ -510,6 +509,47 @@
         });
     }
 
+    /* --- TYPEWRITER TEXT EFFECT --- */
+    const textElement = document.getElementById('typewriter-text');
+    const words = ["Avishek", "Yuvraj"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function typeEffect() {
+        const currentWord = words[wordIndex];
+        let typeSpeed = 150; 
+
+        if (isDeleting) {
+            charIndex--;
+            typeSpeed = 55; // Deleting speed (fast & consistent)
+        } else {
+            charIndex++;
+            // Typing Speed Curve: Random fluctuation for human-like effect
+            // Base 100ms + random 0-100ms jitter = 50ms-150ms range
+            typeSpeed = Math.random() * 100 + 50; 
+        }
+        
+        textElement.textContent = currentWord.substring(0, charIndex);
+        
+        // If word is complete
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 4500; // Hold for 4.5 seconds
+            isDeleting = true;
+        } 
+        // If word is completely deleted
+        else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length; // Switch to next word
+            typeSpeed = 850; // Pause before typing next word
+        }
+        
+        setTimeout(typeEffect, typeSpeed);
+    }
+    
+    // Start effect when DOM loads
+    document.addEventListener('DOMContentLoaded', typeEffect);
+
     document.addEventListener('click', (e) => {
         if (e.target.closest('a')) {
             e.target.blur();
@@ -517,30 +557,20 @@
     });
 
     /* --- Protection Scripts (Deterrents) --- */
-    
-    // 1. Disable Right Click
     document.addEventListener('contextmenu', (e) => {
         e.preventDefault();
     });
 
-    // 2. Disable Common Developer Shortcuts (Updated for Mac)
     document.addEventListener('keydown', (e) => {
-        // Prevent F12
         if (e.key === 'F12') {
             e.preventDefault();
         }
-        
-        // Windows/Linux: Ctrl + Shift + I/J/U
         if (e.ctrlKey && (e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'j') || e.key.toLowerCase() === 'u')) {
             e.preventDefault();
         }
-
-        // Mac: Cmd (metaKey) + Option (altKey) + I/J/U
         if (e.metaKey && (e.altKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'j' || e.key.toLowerCase() === 'u'))) {
             e.preventDefault();
         }
-        
-        // Mac: Cmd + U (View Source) - simple check
         if (e.metaKey && e.key.toLowerCase() === 'u') {
             e.preventDefault();
         }
