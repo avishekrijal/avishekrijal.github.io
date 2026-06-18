@@ -564,6 +564,9 @@ nav {
   gap: 0.75rem;
   position: relative;
   z-index: 1;               /* above ghost text */
+  justify-content: center;
+  align-self: center;
+  margin-top: -9rem;
 }
 .contact-link {
   font-family: var(--mono);
