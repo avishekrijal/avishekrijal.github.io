@@ -658,7 +658,7 @@ nav {
   /* contact stacks */
   .contact-inner        { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-inner::after { display: none; }
-  .contact-links        { flex-direction: row; flex-wrap: wrap; }
+  .contact-links        { flex-direction: row; flex-wrap: wrap; margin-top: 0; }
 
   /* nav */
   .nav-right  { display: none; }
